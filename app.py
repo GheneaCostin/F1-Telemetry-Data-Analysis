@@ -29,10 +29,18 @@ year = st.sidebar.selectbox("Year", [2024, 2025])
 @st.cache_data(show_spinner=True)
 def get_gp_list(year):
     events = fastf1.get_event_schedule(year)
-    return events['EventName'].tolist()
+    # Filter out non-race events
+    race_events = events[events['EventName'].str.contains('Grand Prix')]
+    return race_events['EventName'].tolist()
 
+# ---- Sidebar: Year selection ----
+year = st.sidebar.selectbox("Year", [2024, 2025], index=1)
+
+# ---- Get filtered GP list ----
 gp_list = get_gp_list(year)
-default_gp = "Azerbaijan" if "Azerbaijan" in gp_list else gp_list[0]
+
+# ---- Default GP selection ----
+default_gp = "Azerbaijan Grand Prix" if "Azerbaijan Grand Prix" in gp_list else gp_list[0]
 gp = st.sidebar.selectbox("Grand Prix", gp_list, index=gp_list.index(default_gp))
 
 # ---- Sidebar: Session type ----
@@ -144,5 +152,6 @@ else:
     for col in ['Speed', 'Throttle', 'Brake', 'nGear', 'RPM']:
         fig = plot_telemetry(telemetry_df, col, f"{col} vs Distance")
         st.plotly_chart(fig, use_container_width=True)
+
 
 
