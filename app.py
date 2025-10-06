@@ -22,9 +22,6 @@ fastf1.Cache.enable_cache('cache')
 
 st.title("F1 Telemetry Dashboard")
 
-# ---- Sidebar: Year selection ----
-year = st.sidebar.selectbox("Year", [2024, 2025])
-
 # ---- Get all GPs for that year ----
 @st.cache_data(show_spinner=True)
 def get_gp_list(year):
@@ -152,6 +149,7 @@ else:
     for col in ['Speed', 'Throttle', 'Brake', 'nGear', 'RPM']:
         fig = plot_telemetry(telemetry_df, col, f"{col} vs Distance")
         st.plotly_chart(fig, use_container_width=True)
+
 
 
 
