@@ -1,4 +1,4 @@
-<img width="1074" height="827" alt="image" src="https://github.com/user-attachments/assets/8ad5e45a-0190-47a8-b732-a68e92ff4b62" />F1 Telemetry Dashboard
+F1 Telemetry Dashboard
 
 A Python + Streamlit application for analyzing Formula 1 telemetry and race data. This dashboard allows users to explore driver performance, tire degradation, lap times, and visualize track maps colored by fastest teams.
 
