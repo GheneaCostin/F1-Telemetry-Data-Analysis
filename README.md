@@ -1,5 +1,5 @@
 
-TRY IT YOURSELF https://f1-telemetry-data-analysis.streamlit.app/
+TRY IT YOURSELF https://f1-telemetry-data-analysis.streamlit.app/ (Team Performance Quadrant might take 1-2 minutes to load)
 
 
 F1 Telemetry Dashboard
